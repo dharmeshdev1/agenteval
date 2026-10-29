@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Tools used by the bundled tasks
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends sqlite3 git make
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - name: Tests (Linux has no isolating backend here, so isolation tests are skipped)
+        run: pytest -q
