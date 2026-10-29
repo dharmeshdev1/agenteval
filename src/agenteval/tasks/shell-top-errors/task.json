@@ -1,0 +1,10 @@
+{
+  "id": "shell-top-errors",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Write a shell script that ranks error codes in a log",
+  "category": "shell",
+  "difficulty": "medium",
+  "instruction": "Write an executable POSIX shell script top_errors.sh. Usage: sh top_errors.sh LOGFILE [N]. app.log is an example log.\n\nAn error code is the text ERR- followed by exactly four digits, for example ERR-1042. Matching is case sensitive. A line can contain several codes and every occurrence counts.\n\nPrint the N most frequent codes (N defaults to 3), one per line, formatted as CODE COUNT with a single space between them. Order by count descending, and break ties by code ascending. If there are fewer than N distinct codes print them all. If there are none print nothing. Exit with status 0 in these cases.\n\nIf LOGFILE cannot be read, print a message to stderr and exit with status 2. Use only standard tools such as grep, sort, uniq, awk and head."
+}

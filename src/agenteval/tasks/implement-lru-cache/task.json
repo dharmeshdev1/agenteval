@@ -1,0 +1,13 @@
+{
+  "id": "implement-lru-cache",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Implement an LRU cache",
+  "category": "python-implement",
+  "difficulty": "medium",
+  "protected": [
+    "test_lru.py"
+  ],
+  "instruction": "Implement the LRUCache class in lru.py (a skeleton is provided).\n\nLRUCache(capacity): capacity must be a positive integer, otherwise raise ValueError.\nget(key): return the stored value, or None if the key is absent. A successful get marks the key as most recently used.\nput(key, value): store the value and mark the key as most recently used. Updating an existing key replaces its value and also marks it most recently used. When the cache holds more than capacity entries after a put, evict the least recently used entry.\nlen(cache): number of stored entries.\nkeys(): list of keys ordered from least recently used to most recently used.\nDo not edit test_lru.py."
+}

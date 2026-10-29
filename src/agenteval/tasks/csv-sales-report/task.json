@@ -1,0 +1,10 @@
+{
+  "id": "csv-sales-report",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Write a CSV sales report script",
+  "category": "scripting",
+  "difficulty": "medium",
+  "instruction": "Write report.py. It takes the path of a CSV file as its only argument and prints one line of JSON to stdout. The CSV has the header region,product,units,price. sales.csv is a small example.\n\nThe JSON object has these keys:\n- \"regions\": an object mapping each region name to {\"revenue\": number, \"units\": integer}. Revenue is the sum of units * price for that region, rounded to 2 decimals. Units is the sum of units.\n- \"top_product\": the name of the product with the highest total revenue across all rows. If products tie, choose the one that comes first alphabetically. Use null if there are no valid rows.\n- \"skipped\": how many rows were skipped.\n\nA row is skipped (and counted) if it has a missing or empty field, if units is not an integer, or if price is not a number. Blank lines are ignored and are not counted as skipped. Surrounding whitespace around region and product names must be removed. Fields may be quoted and may contain commas. Print the result with json.dumps(result, sort_keys=True). Use only the Python standard library."
+}

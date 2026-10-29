@@ -1,0 +1,13 @@
+{
+  "id": "build-fix-makefile",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Fix a Makefile that skips its tests and misses changes",
+  "category": "build",
+  "difficulty": "medium",
+  "protected": [
+    "test/check.py"
+  ],
+  "instruction": "The Makefile has bugs. Fix it so that:\n- make test builds dist/app.txt and then runs test/check.py. Today it prints that test is up to date and does nothing.\n- dist/app.txt is the concatenation of every file matching src/*.txt in alphabetical order, and make dist/app.txt rebuilds it whenever any file in src/ changes or a new file is added there.\n- make clean removes the dist directory.\n\nDo not edit test/check.py."
+}

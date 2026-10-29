@@ -1,0 +1,13 @@
+{
+  "id": "shell-fix-quoting",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Fix a backup script that breaks on unusual file names",
+  "category": "shell",
+  "difficulty": "easy",
+  "protected": [
+    "check.sh"
+  ],
+  "instruction": "archive.sh is meant to copy files, but it breaks on unusual file names. Fix it.\n\nUsage: sh archive.sh SRC DEST. It copies every regular file directly inside SRC (not files in subdirectories, and not files whose names start with a dot) into DEST, creating DEST and any missing parent directories. File names must be preserved exactly, including names with spaces, asterisks, question marks, dollar signs or a leading dash. SRC and DEST may contain spaces. It prints only the number of files copied. If SRC is not a directory, print a message to stderr and exit with status 2.\n\ncheck.sh is a simple visible check. Do not edit it."
+}

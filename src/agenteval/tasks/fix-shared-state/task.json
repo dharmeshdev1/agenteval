@@ -1,0 +1,13 @@
+{
+  "id": "fix-shared-state",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Fix state shared between shopping carts",
+  "category": "python-bugfix",
+  "difficulty": "easy",
+  "protected": [
+    "test_cart.py"
+  ],
+  "instruction": "cart.py has a bug: separate Cart objects interfere with each other, and merge_carts leaks results between calls. Fix it.\n\nEach Cart must have its own independent list of items. Cart.add(name, qty=1) appends (name, qty). Cart.total_quantity() returns the sum of quantities.\n\nmerge_carts(a, b) must return a new list containing a's items followed by b's items. It must not modify a or b, and each call must return a fresh list that is independent of every earlier call. Keep the existing function and method names. Do not edit test_cart.py."
+}

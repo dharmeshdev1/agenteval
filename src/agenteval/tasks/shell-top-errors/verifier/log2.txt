@@ -1,0 +1,2 @@
+2024-05-01 10:00:01 INFO all good
+2024-05-01 10:00:02 INFO still good err-1234

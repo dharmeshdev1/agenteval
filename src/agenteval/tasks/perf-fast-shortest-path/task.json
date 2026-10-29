@@ -1,0 +1,13 @@
+{
+  "id": "perf-fast-shortest-path",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 90,
+  "title": "Make a correct but slow shortest-path function fast",
+  "category": "performance",
+  "difficulty": "hard",
+  "protected": [
+    "test_graph.py"
+  ],
+  "instruction": "graph.py has a shortest_path function that gives correct answers but is far too slow on large graphs. Make it fast without changing what it returns.\n\ngraph is a dict mapping each node to a list of (neighbor, weight) pairs with weight >= 0 (weights may be 0). shortest_path(graph, source, target) returns (distance, path), where path is a list of nodes from source to target. If target is unreachable return (None, []). If source == target return (0, [source]). Any shortest path is acceptable when several exist. Nodes that only appear as neighbors may be missing from the dict keys. The graph must not be modified.\n\nIt must handle a 200 by 200 grid graph (40,000 nodes) in well under two seconds, and long chains of 40,000 nodes without hitting the recursion limit. Use only the standard library. Do not edit test_graph.py."
+}

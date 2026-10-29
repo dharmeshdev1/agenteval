@@ -1,0 +1,13 @@
+{
+  "id": "deep-merge-config",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Implement a deep merge for configuration dictionaries",
+  "category": "python-implement",
+  "difficulty": "medium",
+  "protected": [
+    "test_merge.py"
+  ],
+  "instruction": "Implement merge(base, override) in config_merge.py (a skeleton is provided).\n\nRules:\n- Dictionaries are merged recursively, key by key.\n- A value in override replaces the value in base for scalars (str, int, float, bool).\n- Lists are replaced by the override list, not concatenated.\n- If an override value is None, that key is removed from the result.\n- Keys only present in base are kept. Keys only present in override are added (a None value for a key that is not in base adds nothing).\n- Neither base nor override may be modified, and the result must not share any nested dict or list with either input.\nDo not edit test_merge.py."
+}

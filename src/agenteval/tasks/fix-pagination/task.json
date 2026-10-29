@@ -1,0 +1,13 @@
+{
+  "id": "fix-pagination",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Fix two bugs in a pagination helper",
+  "category": "python-bugfix",
+  "difficulty": "easy",
+  "protected": [
+    "test_paginate.py"
+  ],
+  "instruction": "paginate.py has two bugs. Fix them.\n\npaginate(items, page, per_page) must return the items on a 1-indexed page, so page 1 is the first page. It must return an empty list for a page beyond the last page, and raise ValueError when page < 1 or per_page < 1.\n\npage_count(total, per_page) must return how many pages are needed, rounding up, and 0 when total is 0. It must raise ValueError when per_page < 1.\n\nThe visible tests are in test_paginate.py. Do not edit that file."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "git-resolve-conflict",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Resolve a merge conflict and finish the merge",
+  "category": "git",
+  "difficulty": "medium",
+  "instruction": "This directory is a git repository in the middle of a merge: branch feature is being merged into main and two files have conflicts (greet.py and CHANGELOG.md). Resolve the conflicts and complete the merge with a merge commit.\n\nIn greet.py, keep main's version of greet (it has a default name of \"World\" and ends with an exclamation mark) and keep the farewell function that came from feature. Drop feature's different greeting.\nIn CHANGELOG.md keep both entries, main's entry first and feature's entry second.\n\nWhen you are done there must be no conflict markers left in any file, the working tree must be clean, and the history must contain the merge commit."
+}

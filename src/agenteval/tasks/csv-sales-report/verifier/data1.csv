@@ -1,0 +1,12 @@
+region,product,units,price
+north,widget,10,2.50
+north, gadget ,3,10.00
+south,widget,5,2.50
+"south","gizmo",2,99.99
+east,widget,abc,2.50
+east,gadget,4,
+west,gadget,7,10.00
+
+north,widget,1,2.50
+west,widget,2,2.50
+,orphan,1,1.00

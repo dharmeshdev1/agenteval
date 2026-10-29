@@ -1,0 +1,10 @@
+{
+  "id": "sql-top-customers",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Write a SQL query for the top customers",
+  "category": "sql",
+  "difficulty": "medium",
+  "instruction": "A SQLite database shop.db has been created for you from schema.sql and seed.sql (tables customers(id, name) and orders(id, customer_id, amount, status)). Write query.sql containing a single SELECT statement that returns the top 3 customers by total spend.\n\nOnly orders with status 'completed' count. The result has exactly two columns named name and total, where total is the sum of the customer's completed order amounts as a number rounded to 2 decimals. Order by total descending and break ties by name ascending. Customers with no completed orders must not appear. If fewer than 3 customers qualify, return only those.\n\nYou can test with: sqlite3 -csv -header shop.db < query.sql"
+}

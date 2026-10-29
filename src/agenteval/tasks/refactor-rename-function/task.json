@@ -1,0 +1,10 @@
+{
+  "id": "refactor-rename-function",
+  "max_steps": 30,
+  "command_timeout": 30,
+  "verify_timeout": 60,
+  "title": "Rename a function across a small project",
+  "category": "refactor",
+  "difficulty": "medium",
+  "instruction": "Rename the function calc_price to compute_price everywhere in this project: its definition, every call, imports, docstrings, comments, the README and the tests. Behaviour must not change.\n\nOnly the exact name calc_price changes. Other names that merely contain the text, such as recalc_price_cache, must keep their current names. After the change, the old name must not appear anywhere as a standalone word. Update the tests so they still pass."
+}
