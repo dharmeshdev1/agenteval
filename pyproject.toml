@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agenteval"
+version = "0.1.0"
+description = "Agent evaluation harness: sandboxed task environments, hidden verifiers, tamper detection and statistically careful reporting."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Dharmesh Meena" }]
+dependencies = [
+  "evalkit @ git+https://github.com/dharmeshdev1/evalkit.git",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+agenteval = "agenteval.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agenteval = ["tasks/**/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+# Task directories are data: deliberately buggy or minimal code that agents are asked to fix.
+extend-exclude = ["src/agenteval/tasks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["seatbelt: needs macOS sandbox-exec", "docker: needs a Docker daemon"]
