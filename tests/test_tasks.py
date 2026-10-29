@@ -30,3 +30,24 @@ def test_bundled_task_is_valid(task, tmp_path):
 def test_every_task_documents_what_the_hidden_checks_require(task):
     assert len(task.instruction.split()) >= 25, "the instruction must state the requirements"
     assert list((task.root / "wrong").glob("*.sh")), "wrong-solution examples are required"
+
+
+def test_no_task_file_is_hidden_from_git_by_an_ignore_rule():
+    """A task file matching .gitignore (such as *.log) exists locally but is missing from a
+    fresh checkout, so a task breaks only in CI. Catch it here instead."""
+    import shutil
+    import subprocess
+
+    repo = TASKS.parents[2]
+    if shutil.which("git") is None or not (repo / ".git").exists():
+        pytest.skip("not a git checkout")
+    out = subprocess.run(
+        ["git", "ls-files", "--others", "--ignored", "--exclude-standard", str(TASKS)],
+        cwd=repo, capture_output=True, text=True, check=True,
+    ).stdout.split()
+    assert out == [], f"files are ignored by git and would be missing from a checkout: {out}"
+
+
+def test_task_directories_contain_no_bytecode_or_other_build_artifacts():
+    junk = [p for p in TASKS.rglob("*") if p.name == "__pycache__" or p.suffix == ".pyc"]
+    assert junk == []

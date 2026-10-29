@@ -7,3 +7,5 @@ build/
 dist/
 runs/
 *.log
+# Task data may legitimately be a log file
+!src/agenteval/tasks/**/*.log
